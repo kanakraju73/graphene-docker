@@ -1,0 +1,1107 @@
+make -C Pal all
+make[1]: Entering directory '/home/nicholas/graphene/Pal'
+for d in src test regression; \
+do \
+	make -C $d all || exit ; \
+done
+make[2]: Entering directory '/home/nicholas/graphene/Pal/src'
+[ host/Linux-SGX/.obj/db_streams.o ]
+[ host/Linux-SGX/.obj/db_memory.o ]
+[ host/Linux-SGX/.obj/db_threading.o ]
+[ host/Linux-SGX/.obj/db_mutex.o ]
+[ host/Linux-SGX/.obj/db_events.o ]
+[ host/Linux-SGX/.obj/db_process.o ]
+[ host/Linux-SGX/.obj/db_object.o ]
+[ host/Linux-SGX/.obj/db_main.o ]
+[ host/Linux-SGX/.obj/db_misc.o ]
+[ host/Linux-SGX/.obj/db_ipc.o ]
+[ host/Linux-SGX/.obj/db_exception.o ]
+[ host/Linux-SGX/.obj/db_rtld.o ]
+[ host/Linux-SGX/.obj/slab.o ]
+[ host/Linux-SGX/.obj/printf.o ]
+cp -f host/Linux-SGX/host_endian.h host/Linux-SGX/.lib/host_endian.h
+make -C ../lib target=/home/nicholas/graphene/Pal/src/host/Linux-SGX/.lib/
+make[3]: Entering directory '/home/nicholas/graphene/Pal/lib'
+[ atoi.o ]
+[ strlen.o ]
+[ memcmp.o ]
+[ wordcopy.o ]
+[ memcpy.o ]
+[ memset.o ]
+[ strchr.o ]
+[ printfmt.o ]
+[ hton.o ]
+[ inet_pton.o ]
+[ config.o ]
+[ path.o ]
+[ udivmodti4.o ]
+[ cipher_wrap.o ]
+[ dhm.o ]
+[ cipher.o ]
+[ rsa.o ]
+[ cmac.o ]
+[ sha256.o ]
+[ md.o ]
+[ aes.o ]
+[ bignum.o ]
+[ aesni.o ]
+[ mbedtls_adapter.o ]
+[ mbedtls_dh.o ]
+[ graphene-lib.a ]
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/lib'
+make[3]: Entering directory '/home/nicholas/graphene/Pal/src/host/Linux-SGX'
+[ host/Linux-SGX/db_files.o ]
+[ host/Linux-SGX/db_devices.o ]
+[ host/Linux-SGX/db_pipes.o ]
+[ host/Linux-SGX/db_sockets.o ]
+[ host/Linux-SGX/db_streams.o ]
+[ host/Linux-SGX/db_memory.o ]
+[ host/Linux-SGX/db_threading.o ]
+[ host/Linux-SGX/db_mutex.o ]
+[ host/Linux-SGX/db_events.o ]
+[ host/Linux-SGX/db_process.o ]
+[ host/Linux-SGX/db_object.o ]
+[ host/Linux-SGX/db_main.o ]
+[ host/Linux-SGX/db_rtld.o ]
+[ host/Linux-SGX/db_exception.o ]
+[ host/Linux-SGX/db_misc.o ]
+[ host/Linux-SGX/db_ipc.o ]
+[ host/Linux-SGX/db_spinlock.o ]
+[ host/Linux-SGX/enclave_ocalls.o ]
+[ host/Linux-SGX/enclave_ecalls.o ]
+[ host/Linux-SGX/enclave_framework.o ]
+[ host/Linux-SGX/enclave_pages.o ]
+[ host/Linux-SGX/enclave_untrusted.o ]
+[ host/Linux-SGX/enclave_entry.o ]
+[ host/Linux-SGX/libpal-Linux-SGX.a ]
+ar rcs  libpal-Linux-SGX.a db_files.o db_devices.o db_pipes.o db_sockets.o db_streams.o db_memory.o db_threading.o db_mutex.o db_events.o db_process.o db_object.o db_main.o db_rtld.o db_exception.o db_misc.o db_ipc.o db_spinlock.o enclave_ocalls.o enclave_ecalls.o enclave_framework.o enclave_pages.o enclave_untrusted.o enclave_entry.o
+[ host/Linux-SGX/sgx_enclave.o ]
+[ host/Linux-SGX/sgx_framework.o ]
+[ host/Linux-SGX/sgx_main.o ]
+[ host/Linux-SGX/sgx_rtld.o ]
+[ host/Linux-SGX/sgx_thread.o ]
+[ host/Linux-SGX/sgx_process.o ]
+[ host/Linux-SGX/sgx_exception.o ]
+[ host/Linux-SGX/sgx_graphene.o ]
+[ host/Linux-SGX/sgx_entry.o ]
+[ host/Linux-SGX/pal-sgx ]
+[ host/Linux-SGX/debugger/sgx_gdb.so ]
+gcc -Wall -fPIC -O2 -std=gnu99 -fgnu89-inline -c debugger/sgx_gdb.c -o debugger/sgx_gdb.o
+ld -shared debugger/sgx_gdb.o -o debugger/sgx_gdb.so -lc
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/src/host/Linux-SGX'
+[ host/Linux-SGX/libpal.so ]
+ld -shared -nostdlib -z combreloc -z defs --version-script host/Linux-SGX/pal.map -T host/Linux-SGX/enclave.lds --hash-style=gnu -e enclave_entry -o host/Linux-SGX/libpal.so host/Linux-SGX/.obj/db_streams.o host/Linux-SGX/.obj/db_memory.o host/Linux-SGX/.obj/db_threading.o host/Linux-SGX/.obj/db_mutex.o host/Linux-SGX/.obj/db_events.o host/Linux-SGX/.obj/db_process.o host/Linux-SGX/.obj/db_object.o host/Linux-SGX/.obj/db_main.o host/Linux-SGX/.obj/db_misc.o host/Linux-SGX/.obj/db_ipc.o host/Linux-SGX/.obj/db_exception.o host/Linux-SGX/.obj/db_rtld.o host/Linux-SGX/.obj/slab.o host/Linux-SGX/.obj/printf.o host/Linux-SGX/libpal-Linux-SGX.a host/Linux-SGX/.lib/graphene-lib.a 
+[ host/Linux-SGX/libpal.a ]
+cp -f host/Linux-SGX/pal-sgx /home/nicholas/graphene/Pal/src/../../Runtime/pal-Linux-SGX
+cp -f host/Linux-SGX/libpal.so /home/nicholas/graphene/Pal/src/../../Runtime/libpal-Linux-SGX.so
+ln -sf ../Pal/src/host/Linux-SGX/debugger/gdb /home/nicholas/graphene/Pal/src/../../Runtime/pal_gdb-Linux-SGX
+make[2]: Leaving directory '/home/nicholas/graphene/Pal/src'
+make[2]: Entering directory '/home/nicholas/graphene/Pal/test'
+ln -sf ../../Runtime/pal_loader
+cp -f ../src/host/Linux-SGX/host_endian.h .lib/host_endian.h
+make -C ../lib target=/home/nicholas/graphene/Pal/test/.lib/
+make[3]: Entering directory '/home/nicholas/graphene/Pal/lib'
+[ atoi.o ]
+[ strlen.o ]
+[ memcmp.o ]
+[ wordcopy.o ]
+[ memcpy.o ]
+[ memset.o ]
+[ strchr.o ]
+[ printfmt.o ]
+[ hton.o ]
+[ inet_pton.o ]
+[ config.o ]
+[ path.o ]
+[ udivmodti4.o ]
+[ cipher_wrap.o ]
+[ dhm.o ]
+[ cipher.o ]
+[ rsa.o ]
+[ cmac.o ]
+[ sha256.o ]
+[ md.o ]
+[ aes.o ]
+[ bignum.o ]
+[ aesni.o ]
+[ mbedtls_adapter.o ]
+[ mbedtls_dh.o ]
+[ graphene-lib.a ]
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/lib'
+[ HelloWorld ]
+[ File ]
+[ Failure ]
+[ Thread ]
+[ Fork ]
+[ Event ]
+[ Process ]
+[ Exception ]
+[ Memory ]
+[ Pipe ]
+[ Tcp ]
+[ Udp ]
+[ Yield ]
+[ Broadcast ]
+[ Ipc ]
+[ Server ]
+[ Wait ]
+[ HandleSend ]
+[ Select ]
+[ Segment ]
+[ Sleep ]
+[ Cpuid ]
+[ Pie ]
+cp -f manifest.template manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ HelloWorld.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output HelloWorld.manifest.sgx -exec HelloWorld -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ File.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output File.manifest.sgx -exec File -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Failure.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Failure.manifest.sgx -exec Failure -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Thread.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Thread.manifest.sgx -exec Thread -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Fork.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Fork.manifest.sgx -exec Fork -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Event.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Event.manifest.sgx -exec Event -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Process.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Process.manifest.sgx -exec Process -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Exception.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Exception.manifest.sgx -exec Exception -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Memory.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Memory.manifest.sgx -exec Memory -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Pipe.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Pipe.manifest.sgx -exec Pipe -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Tcp.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Tcp.manifest.sgx -exec Tcp -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Udp.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Udp.manifest.sgx -exec Udp -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Yield.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Yield.manifest.sgx -exec Yield -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Broadcast.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Broadcast.manifest.sgx -exec Broadcast -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Ipc.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Ipc.manifest.sgx -exec Ipc -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Server.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Server.manifest.sgx -exec Server -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Wait.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Wait.manifest.sgx -exec Wait -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ HandleSend.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output HandleSend.manifest.sgx -exec HandleSend -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Select.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Select.manifest.sgx -exec Select -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Segment.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Segment.manifest.sgx -exec Segment -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Sleep.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Sleep.manifest.sgx -exec Sleep -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Cpuid.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Cpuid.manifest.sgx -exec Cpuid -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/test'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/test'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Pie.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Pie.manifest.sgx -exec Pie -manifest manifest
+make[2]: Leaving directory '/home/nicholas/graphene/Pal/test'
+make[2]: Entering directory '/home/nicholas/graphene/Pal/regression'
+cp -f ../src/host/Linux-SGX/host_endian.h .lib/host_endian.h
+make -C ../lib target=/home/nicholas/graphene/Pal/regression/.lib/
+make[3]: Entering directory '/home/nicholas/graphene/Pal/lib'
+[ atoi.o ]
+[ strlen.o ]
+[ memcmp.o ]
+[ wordcopy.o ]
+[ memcpy.o ]
+[ memset.o ]
+[ strchr.o ]
+[ printfmt.o ]
+[ hton.o ]
+[ inet_pton.o ]
+[ config.o ]
+[ path.o ]
+[ udivmodti4.o ]
+[ cipher_wrap.o ]
+[ dhm.o ]
+[ cipher.o ]
+[ rsa.o ]
+[ cmac.o ]
+[ sha256.o ]
+[ md.o ]
+[ aes.o ]
+[ bignum.o ]
+[ aesni.o ]
+[ mbedtls_adapter.o ]
+[ mbedtls_dh.o ]
+[ graphene-lib.a ]
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/lib'
+[ Preload1.so ]
+[ Preload2.so ]
+[ Socket ]
+[ Process2 ]
+[ Semaphore ]
+[ Bootstrap2 ]
+[ Pipe ]
+[ Exception ]
+[ AtomicMath ]
+[ File ]
+[ Bootstrap ]
+[ Directory ]
+[ Process3 ]
+[ Symbols ]
+[ Misc ]
+[ Process ]
+[ Bootstrap7 ]
+[ Memory ]
+[ Ipc ]
+[ Exit ]
+[ Bootstrap3 ]
+[ Thread ]
+[ Hex ]
+[ SendHandle ]
+[ ..Bootstrap ]
+sed -e 's:\$(PAL):/home/nicholas/graphene/Runtime/pal_loader:g' -e 's:\$(PWD):/home/nicholas/graphene/Pal/regression/:g'  manifest.template >manifest
+sed -e 's:\$(PAL):/home/nicholas/graphene/Runtime/pal_loader:g' -e 's:\$(PWD):/home/nicholas/graphene/Pal/regression/:g'  Bootstrap7.manifest.template >Bootstrap7.manifest
+(grep -q "#\!" Bootstrap7.manifest && chmod +x Bootstrap7.manifest) || true
+sed -e 's:\$(PAL):/home/nicholas/graphene/Runtime/pal_loader:g' -e 's:\$(PWD):/home/nicholas/graphene/Pal/regression/:g'  SendHandle.manifest.template >SendHandle.manifest
+(grep -q "#\!" SendHandle.manifest && chmod +x SendHandle.manifest) || true
+sed -e 's:\$(PAL):/home/nicholas/graphene/Runtime/pal_loader:g' -e 's:\$(PWD):/home/nicholas/graphene/Pal/regression/:g'  Process2.manifest.template >Process2.manifest
+(grep -q "#\!" Process2.manifest && chmod +x Process2.manifest) || true
+sed -e 's:\$(PAL):/home/nicholas/graphene/Runtime/pal_loader:g' -e 's:\$(PWD):/home/nicholas/graphene/Pal/regression/:g'  Bootstrap2.manifest.template >Bootstrap2.manifest
+(grep -q "#\!" Bootstrap2.manifest && chmod +x Bootstrap2.manifest) || true
+sed -e 's:\$(PAL):/home/nicholas/graphene/Runtime/pal_loader:g' -e 's:\$(PWD):/home/nicholas/graphene/Pal/regression/:g'  Bootstrap3.manifest.template >Bootstrap3.manifest
+(grep -q "#\!" Bootstrap3.manifest && chmod +x Bootstrap3.manifest) || true
+sed -e 's:\$(PAL):/home/nicholas/graphene/Runtime/pal_loader:g' -e 's:\$(PWD):/home/nicholas/graphene/Pal/regression/:g'  File.manifest.template >File.manifest
+(grep -q "#\!" File.manifest && chmod +x File.manifest) || true
+sed -e 's:\$(PAL):/home/nicholas/graphene/Runtime/pal_loader:g' -e 's:\$(PWD):/home/nicholas/graphene/Pal/regression/:g'  Bootstrap4.manifest.template >Bootstrap4.manifest
+(grep -q "#\!" Bootstrap4.manifest && chmod +x Bootstrap4.manifest) || true
+sed -e 's:\$(PAL):/home/nicholas/graphene/Runtime/pal_loader:g' -e 's:\$(PWD):/home/nicholas/graphene/Pal/regression/:g'  Process3.manifest.template >Process3.manifest
+(grep -q "#\!" Process3.manifest && chmod +x Process3.manifest) || true
+sed -e 's:\$(PAL):/home/nicholas/graphene/Runtime/pal_loader:g' -e 's:\$(PWD):/home/nicholas/graphene/Pal/regression/:g'  Bootstrap5.manifest.template >Bootstrap5.manifest
+(grep -q "#\!" Bootstrap5.manifest && chmod +x Bootstrap5.manifest) || true
+sed -e 's:\$(PAL):/home/nicholas/graphene/Runtime/pal_loader:g' -e 's:\$(PWD):/home/nicholas/graphene/Pal/regression/:g'  Process.manifest.template >Process.manifest
+(grep -q "#\!" Process.manifest && chmod +x Process.manifest) || true
+sed -e 's:\$(PAL):/home/nicholas/graphene/Runtime/pal_loader:g' -e 's:\$(PWD):/home/nicholas/graphene/Pal/regression/:g'  Bootstrap6.manifest.template >Bootstrap6.manifest
+(grep -q "#\!" Bootstrap6.manifest && chmod +x Bootstrap6.manifest) || true
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Socket.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Socket.manifest.sgx -exec Socket -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'Process2.manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' Process2.manifest`; do make ${f%.sig}.manifest.sgx; done
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[4]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[4]: 'manifest' is up to date.
+make[4]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Bootstrap.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Bootstrap.manifest.sgx -exec Bootstrap -manifest manifest
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+[ Process2.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Process2.manifest.sgx -exec Process2 -manifest Process2.manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Semaphore.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Semaphore.manifest.sgx -exec Semaphore -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'Bootstrap2.manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' Bootstrap2.manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Bootstrap2.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Bootstrap2.manifest.sgx -exec Bootstrap2 -manifest Bootstrap2.manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Pipe.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Pipe.manifest.sgx -exec Pipe -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Exception.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Exception.manifest.sgx -exec Exception -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ AtomicMath.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output AtomicMath.manifest.sgx -exec AtomicMath -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'File.manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' File.manifest`; do make ${f%.sig}.manifest.sgx; done
+[ File.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output File.manifest.sgx -exec File -manifest File.manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Directory.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Directory.manifest.sgx -exec Directory -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'Process3.manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' Process3.manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Process3.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Process3.manifest.sgx -exec Process3 -manifest Process3.manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Symbols.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Symbols.manifest.sgx -exec Symbols -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Misc.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Misc.manifest.sgx -exec Misc -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'Process.manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' Process.manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Process.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Process.manifest.sgx -exec Process -manifest Process.manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'Bootstrap7.manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' Bootstrap7.manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Bootstrap7.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Bootstrap7.manifest.sgx -exec Bootstrap7 -manifest Bootstrap7.manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Memory.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Memory.manifest.sgx -exec Memory -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Ipc.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Ipc.manifest.sgx -exec Ipc -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Exit.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Exit.manifest.sgx -exec Exit -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'Bootstrap3.manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' Bootstrap3.manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Bootstrap3.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Bootstrap3.manifest.sgx -exec Bootstrap3 -manifest Bootstrap3.manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Thread.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Thread.manifest.sgx -exec Thread -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ Hex.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Hex.manifest.sgx -exec Hex -manifest manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'SendHandle.manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' SendHandle.manifest`; do make ${f%.sig}.manifest.sgx; done
+[ SendHandle.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output SendHandle.manifest.sgx -exec SendHandle -manifest SendHandle.manifest
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+[ ..Bootstrap.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output ..Bootstrap.manifest.sgx -exec ..Bootstrap -manifest manifest
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' Bootstrap4.manifest`; do make ${f%.sig}.manifest.sgx; done
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'Bootstrap4.manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+[ Bootstrap4.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Bootstrap4.manifest.sgx -manifest Bootstrap4.manifest
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' Bootstrap5.manifest`; do make ${f%.sig}.manifest.sgx; done
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'Bootstrap5.manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+[ Bootstrap5.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Bootstrap5.manifest.sgx -manifest Bootstrap5.manifest
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' Bootstrap6.manifest`; do make ${f%.sig}.manifest.sgx; done
+make[3]: Entering directory '/home/nicholas/graphene/Pal/regression'
+make[3]: 'Bootstrap6.manifest' is up to date.
+make[3]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+[ Bootstrap6.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/regression/../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output Bootstrap6.manifest.sgx -manifest Bootstrap6.manifest
+make[2]: Leaving directory '/home/nicholas/graphene/Pal/regression'
+make[1]: Leaving directory '/home/nicholas/graphene/Pal'
+make -C LibOS all
+make[1]: Entering directory '/home/nicholas/graphene/LibOS'
+./buildglibc.py --quiet
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking for gcc... gcc
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking for readelf... readelf
+checking for sysdeps preconfigure fragments... powerpc x86_64 checking whether gcc compiles in -mx32 mode by default... no
+
+configure: running configure fragment for add-on nptl
+checking for assembler and linker STT_GNU_IFUNC support... yes
+checking whether .text pseudo-op must be used... yes
+checking sysdep dirs... sysdeps/unix/sysv/linux/x86_64/64/nptl sysdeps/unix/sysv/linux/x86_64/64 nptl/sysdeps/unix/sysv/linux/x86_64 nptl/sysdeps/unix/sysv/linux/x86 sysdeps/unix/sysv/linux/x86 sysdeps/unix/sysv/linux/x86_64 sysdeps/unix/sysv/linux/wordsize-64 nptl/sysdeps/unix/sysv/linux nptl/sysdeps/pthread sysdeps/pthread sysdeps/unix/sysv/linux sysdeps/gnu sysdeps/unix/inet nptl/sysdeps/unix/sysv sysdeps/unix/sysv sysdeps/unix/x86_64 nptl/sysdeps/unix sysdeps/unix sysdeps/posix nptl/sysdeps/x86_64/64 sysdeps/x86_64/64 sysdeps/x86_64/fpu/multiarch sysdeps/x86_64/fpu sysdeps/x86/fpu sysdeps/x86_64/multiarch nptl/sysdeps/x86_64 sysdeps/x86_64 sysdeps/x86 sysdeps/ieee754/ldbl-96 sysdeps/ieee754/dbl-64/wordsize-64 sysdeps/ieee754/dbl-64 sysdeps/ieee754/flt-32 sysdeps/wordsize-64 sysdeps/ieee754 sysdeps/generic
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... yes
+checking whether as is GNU as... yes
+checking whether ld is GNU ld... yes
+checking for as... as
+checking version of as... 2.30, ok
+checking for ld... ld
+checking version of ld... 2.30, ok
+checking for gcc... gcc
+checking version of gcc... 7.3.0, ok
+checking for gnumake... no
+checking for gmake... no
+checking for make... make
+checking version of make... 4.1, ok
+checking for gnumsgfmt... no
+checking for gmsgfmt... no
+checking for msgfmt... msgfmt
+checking version of msgfmt... 0.19.8.1, ok
+checking for makeinfo... makeinfo
+checking version of makeinfo... 6.5, ok
+checking for sed... sed
+checking version of sed... 4.4, ok
+checking for gawk... gawk
+checking version of gawk... 4.1.4, ok
+checking for nm... nm
+checking LD_LIBRARY_PATH variable... ok
+checking whether GCC supports -static-libgcc... -static-libgcc
+checking for bash... /bin/bash
+checking for perl... /usr/bin/perl
+checking for install-info... /usr/bin/install-info
+checking for bison... /usr/bin/bison
+checking for libc-friendly stddef.h... yes
+checking whether we need to use -P to assemble .S files... no
+checking for .set assembler directive... yes
+checking for assembler gnu_unique_object symbol type... yes
+checking for .previous assembler directive... yes
+checking for .protected and .hidden assembler directive... yes
+checking whether __attribute__((visibility())) is supported... yes
+checking for broken __attribute__((visibility()))... no
+checking for broken __attribute__((alias()))... no
+checking whether to put _rtld_local into .sdata section... no
+checking for .preinit_array/.init_array/.fini_array support... yes
+checking whether to use .ctors/.dtors header and trailer... no
+checking for libunwind-support in compiler... no
+checking for linker that supports -z nodelete... yes
+checking for linker that supports -z nodlopen... yes
+checking for linker that supports -z initfirst... yes
+checking for -z relro option... yes
+checking for -Bgroup option... yes
+checking whether --noexecstack is desirable for .S files... yes
+checking for -z combreloc... yes
+checking for linker that supports -z execstack... yes
+checking for -fpie... yes
+checking for --hash-style option... yes
+checking for sufficient default -shared layout... no
+checking linker output format... elf64-x86-64
+checking for -fno-toplevel-reorder -fno-section-anchors... yes
+checking for -fstack-protector... yes
+checking for -fgnu89-inline... yes
+checking whether cc puts quotes around section names... no
+checking for assembler .weak directive... yes
+checking whether CFI directives are supported... yes
+checking for ld --no-whole-archive... yes
+checking for gcc -fexceptions... yes
+checking for __builtin_memset... yes
+checking for redirection of built-in functions... yes
+checking for __thread... yes
+checking for tls_model attribute... yes
+checking for compiler option to disable generation of FMA instructions... -ffp-contract=off
+checking if gcc accepts -fno-tree-loop-distribute-patterns with __attribute__ ((__optimize__))... yes
+checking for libgd... no
+checking size of long double... 16
+checking for _FORTIFY_SOURCE predefine... no
+checking whether gcc implicitly enables -fstack-protector... no
+running configure fragment for nptl/sysdeps/pthread
+checking for forced unwind support... yes
+checking for C cleanup handling... yes
+running configure fragment for sysdeps/unix/sysv/linux
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking installed Linux kernel header files... 2.6.19 or later
+checking for kernel header at least 2.6.16... ok
+checking for linux/fanotify.h... yes
+checking for symlinks in /home/nicholas/graphene/Runtime/include... ok
+running configure fragment for sysdeps/gnu
+running configure fragment for nptl/sysdeps/x86_64
+checking for .cfi_personality and .cfi_lsda pseudo-ops... yes
+running configure fragment for sysdeps/x86_64
+checking for cpuid.h... yes
+checking for SSE4 support... yes
+checking for AVX support... yes
+checking for AVX encoding of SSE instructions... yes
+checking for FMA4 support... yes
+checking for -mno-vzeroupper support... yes
+checking for old glibc 2.0.x headers... no
+checking whether -fPIC is default... yes
+checking whether -fPIE is default... yes
+configure: creating ./config.status
+config.status: creating config.make
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing default commands
+building in /home/nicholas/graphene/LibOS: glibc-2.19
+using build dir: /home/nicholas/graphene/LibOS/glibc-build
+using install dir: /home/nicholas/graphene/Runtime
+CFLAGS=" -O2 -U_FORTIFY_SOURCE -fno-stack-protector -Wno-unused-value"  /home/nicholas/graphene/LibOS/glibc-2.19/configure --prefix=/home/nicholas/graphene/Runtime --with-tls --enable-add-ons=nptl --without-selinux --disable-test --disable-nscd | tee configure.out
+/home/nicholas/graphene/Runtime/ld-linux-x86-64.so.2 -> /home/nicholas/graphene/LibOS/glibc-build/elf/ld-linux-x86-64.so.2
+/home/nicholas/graphene/Runtime/libpthread.so.0 -> /home/nicholas/graphene/LibOS/glibc-build/nptl/libpthread.so.0
+/home/nicholas/graphene/Runtime/libc.so -> /home/nicholas/graphene/LibOS/glibc-build//libc.so
+/home/nicholas/graphene/Runtime/libc.so.6 -> /home/nicholas/graphene/LibOS/glibc-build//libc.so.6
+/home/nicholas/graphene/Runtime/libthread_db.so.1 -> /home/nicholas/graphene/LibOS/glibc-build/nptl_db/libthread_db.so.1
+/home/nicholas/graphene/Runtime/libm.so.6 -> /home/nicholas/graphene/LibOS/glibc-build/math/libm.so.6
+/home/nicholas/graphene/Runtime/libdl.so.2 -> /home/nicholas/graphene/LibOS/glibc-build/dlfcn/libdl.so.2
+/home/nicholas/graphene/Runtime/libutil.so.1 -> /home/nicholas/graphene/LibOS/glibc-build/login/libutil.so.1
+/home/nicholas/graphene/Runtime/crt1.o -> /home/nicholas/graphene/LibOS/glibc-build/csu/crt1.o
+/home/nicholas/graphene/Runtime/crti.o -> /home/nicholas/graphene/LibOS/glibc-build/csu/crti.o
+/home/nicholas/graphene/Runtime/crtn.o -> /home/nicholas/graphene/LibOS/glibc-build/csu/crtn.o
+/home/nicholas/graphene/Runtime/librt.so.1 -> /home/nicholas/graphene/LibOS/glibc-build/rt/librt.so.1
+/home/nicholas/graphene/Runtime/libnss_dns.so.2 -> /home/nicholas/graphene/LibOS/glibc-build/resolv/libnss_dns.so.2
+/home/nicholas/graphene/Runtime/libresolv.so.2 -> /home/nicholas/graphene/LibOS/glibc-build/resolv/libresolv.so.2
+/home/nicholas/graphene/Runtime/liblibos.so.1 -> /home/nicholas/graphene/LibOS/glibc-build/libos/liblibos.so.1
+Building glibc, may take a while to finish. Warning messages may show up. If this process terminates with failures, see "glibc-build/build.log" for more information.
+cd glibc-build && (make 2>&1 >> build.log)
+setenv.c: In function ‘__unsetenv’:
+setenv.c:328:6: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+   if (ep != NULL)
+      ^
+setenv.c: In function ‘__unsetenv’:
+setenv.c:328:6: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+   if (ep != NULL)
+      ^
+*** errlist.c count 134 inflated to GLIBC_2.12 count 135 (old errno.h?)
+In file included from ../sysdeps/unix/sysv/linux/wordsize-64/openat.c:5:0:
+../sysdeps/unix/sysv/linux/wordsize-64/../openat.c:146:26: warning: ‘__openat’ defined as variadic function without prototype
+ #define UNDERIZE_1(name) __##name
+                          ^
+../sysdeps/unix/sysv/linux/wordsize-64/../openat.c:145:24: note: in expansion of macro ‘UNDERIZE_1’
+ #define UNDERIZE(name) UNDERIZE_1 (name)
+                        ^~~~~~~~~~
+../sysdeps/unix/sysv/linux/wordsize-64/../openat.c:147:18: note: in expansion of macro ‘UNDERIZE’
+ #define __OPENAT UNDERIZE (OPENAT)
+                  ^~~~~~~~
+../sysdeps/unix/sysv/linux/wordsize-64/../openat.c:154:1: note: in expansion of macro ‘__OPENAT’
+ __OPENAT (fd, file, oflag)
+ ^~~~~~~~
+In file included from ../sysdeps/unix/sysv/linux/wordsize-64/../openat.c:19:0,
+                 from ../sysdeps/unix/sysv/linux/wordsize-64/openat.c:5:
+../include/fcntl.h:21:12: note: previous declaration of ‘__openat’ was here
+ extern int __openat (int __fd, const char *__file, int __oflag, ...)
+            ^~~~~~~~
+In file included from ../sysdeps/unix/sysv/linux/wordsize-64/openat.c:5:0:
+../sysdeps/unix/sysv/linux/wordsize-64/../openat.c:146:26: warning: ‘__openat’ defined as variadic function without prototype
+ #define UNDERIZE_1(name) __##name
+                          ^
+../sysdeps/unix/sysv/linux/wordsize-64/../openat.c:145:24: note: in expansion of macro ‘UNDERIZE_1’
+ #define UNDERIZE(name) UNDERIZE_1 (name)
+                        ^~~~~~~~~~
+../sysdeps/unix/sysv/linux/wordsize-64/../openat.c:147:18: note: in expansion of macro ‘UNDERIZE’
+ #define __OPENAT UNDERIZE (OPENAT)
+                  ^~~~~~~~
+../sysdeps/unix/sysv/linux/wordsize-64/../openat.c:154:1: note: in expansion of macro ‘__OPENAT’
+ __OPENAT (fd, file, oflag)
+ ^~~~~~~~
+In file included from <command-line>:0:0:
+../include/fcntl.h:23:20: note: previous declaration of ‘__openat’ was here
+ libc_hidden_proto (__openat)
+                    ^
+./../include/libc-symbols.h:478:33: note: in definition of macro ‘__hidden_proto’
+   extern thread __typeof (name) name __asm__ (__hidden_asmname (#internal)) \
+                                 ^~~~
+./../include/libc-symbols.h:543:44: note: in expansion of macro ‘hidden_proto’
+ # define libc_hidden_proto(name, attrs...) hidden_proto (name, ##attrs)
+                                            ^~~~~~~~~~~~
+../include/fcntl.h:23:1: note: in expansion of macro ‘libc_hidden_proto’
+ libc_hidden_proto (__openat)
+ ^~~~~~~~~~~~~~~~~
+dl-debug.c:76:1: warning: empty declaration
+ __attribute__((weak));
+ ^~~~~~~~~~~~~
+dl-open.c: In function ‘_dl_open’:
+dl-open.c:631:18: warning: array subscript is outside array bounds [-Warray-bounds]
+     && (GL(dl_ns)[nsid]._ns_nloaded == 0
+dl-open.c:632:21: warning: array subscript is outside array bounds [-Warray-bounds]
+         || GL(dl_ns)[nsid]._ns_loaded->l_auditing))
+dl-close.c: In function ‘_dl_close_worker’:
+dl-close.c:134:42: warning: array subscript is outside array bounds [-Warray-bounds]
+   struct link_namespaces *ns = &GL(dl_ns)[nsid];
+rtld.c: In function ‘dl_main’:
+rtld.c:915:9: warning: unused variable ‘file’ [-Wunused-variable]
+   char *file;
+         ^~~~
+rtld.c:914:10: warning: unused variable ‘file_size’ [-Wunused-variable]
+   size_t file_size;
+          ^~~~~~~~~
+dl-debug.c:76:1: warning: empty declaration
+ __attribute__((weak));
+ ^~~~~~~~~~~~~
+../sysdeps/unix/sysv/linux/dl-openat64.c:26:1: warning: ‘openat64’ defined as variadic function without prototype
+ openat64 (dfd, file, oflag)
+ ^~~~~~~~
+In file included from ../include/fcntl.h:2:0,
+                 from ../sysdeps/unix/sysv/linux/dl-openat64.c:21:
+../io/fcntl.h:204:12: note: previous declaration of ‘openat64’ was here
+ extern int openat64 (int __fd, const char *__file, int __oflag, ...)
+            ^~~~~~~~
+programs/ld-ctype.c: In function ‘find_translit’:
+cc1: warning: function may return address of local variable [-Wreturn-local-addr]
+programs/ld-ctype.c:1780:29: note: declared here
+        return (uint32_t []) { 0 };
+                             ^
+cc1: warning: function may return address of local variable [-Wreturn-local-addr]
+programs/ld-ctype.c:1780:29: note: declared here
+In file included from ../sysdeps/x86_64/fpu/multiarch/e_pow.c:15:0:
+../sysdeps/ieee754/dbl-64/e_pow.c: In function ‘checkint’:
+../sysdeps/ieee754/dbl-64/e_pow.c:444:13: warning: ‘<<’ in boolean context, did you mean ‘<’ ? [-Wint-in-bool-context]
+       if (n << (k - 20))
+           ~~^~~~~~~~~~~
+../sysdeps/ieee754/dbl-64/e_pow.c:446:17: warning: ‘<<’ in boolean context, did you mean ‘<’ ? [-Wint-in-bool-context]
+       return (n << (k - 21)) ? -1 : 1;
+              ~~~^~~~~~~~~~~~
+../sysdeps/ieee754/dbl-64/e_pow.c:452:9: warning: ‘<<’ in boolean context, did you mean ‘<’ ? [-Wint-in-bool-context]
+   if (m << (k + 12))
+       ~~^~~~~~~~~~~
+../sysdeps/ieee754/dbl-64/e_pow.c:454:13: warning: ‘<<’ in boolean context, did you mean ‘<’ ? [-Wint-in-bool-context]
+   return (m << (k + 11)) ? -1 : 1;
+          ~~~^~~~~~~~~~~~
+../sysdeps/ieee754/flt-32/e_log10f.c:25:20: warning: ‘zero’ defined but not used [-Wunused-const-variable=]
+ static const float zero   =  0.0;
+                    ^~~~
+../sysdeps/ieee754/flt-32/k_rem_pio2f.c: In function ‘__kernel_rem_pio2f’:
+../sysdeps/ieee754/flt-32/k_rem_pio2f.c:68:6: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+      for(j=0,fw=0.0;j<=jx;j++) fw += x[j]*f[jx+i-j]; q[i] = fw;
+      ^~~
+../sysdeps/ieee754/flt-32/k_rem_pio2f.c:68:54: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+      for(j=0,fw=0.0;j<=jx;j++) fw += x[j]*f[jx+i-j]; q[i] = fw;
+                                                      ^
+In file included from ../sysdeps/x86_64/fpu/multiarch/e_pow-fma4.c:6:0:
+../sysdeps/ieee754/dbl-64/e_pow.c: In function ‘checkint’:
+../sysdeps/ieee754/dbl-64/e_pow.c:444:13: warning: ‘<<’ in boolean context, did you mean ‘<’ ? [-Wint-in-bool-context]
+       if (n << (k - 20))
+           ~~^~~~~~~~~~~
+../sysdeps/ieee754/dbl-64/e_pow.c:446:17: warning: ‘<<’ in boolean context, did you mean ‘<’ ? [-Wint-in-bool-context]
+       return (n << (k - 21)) ? -1 : 1;
+              ~~~^~~~~~~~~~~~
+../sysdeps/ieee754/dbl-64/e_pow.c:452:9: warning: ‘<<’ in boolean context, did you mean ‘<’ ? [-Wint-in-bool-context]
+   if (m << (k + 12))
+       ~~^~~~~~~~~~~
+../sysdeps/ieee754/dbl-64/e_pow.c:454:13: warning: ‘<<’ in boolean context, did you mean ‘<’ ? [-Wint-in-bool-context]
+   return (m << (k + 11)) ? -1 : 1;
+          ~~~^~~~~~~~~~~~
+In file included from ../sysdeps/x86_64/fpu/multiarch/e_pow.c:15:0:
+../sysdeps/ieee754/dbl-64/e_pow.c: In function ‘checkint’:
+../sysdeps/ieee754/dbl-64/e_pow.c:444:13: warning: ‘<<’ in boolean context, did you mean ‘<’ ? [-Wint-in-bool-context]
+       if (n << (k - 20))
+           ~~^~~~~~~~~~~
+../sysdeps/ieee754/dbl-64/e_pow.c:446:17: warning: ‘<<’ in boolean context, did you mean ‘<’ ? [-Wint-in-bool-context]
+       return (n << (k - 21)) ? -1 : 1;
+              ~~~^~~~~~~~~~~~
+../sysdeps/ieee754/dbl-64/e_pow.c:452:9: warning: ‘<<’ in boolean context, did you mean ‘<’ ? [-Wint-in-bool-context]
+   if (m << (k + 12))
+       ~~^~~~~~~~~~~
+../sysdeps/ieee754/dbl-64/e_pow.c:454:13: warning: ‘<<’ in boolean context, did you mean ‘<’ ? [-Wint-in-bool-context]
+   return (m << (k + 11)) ? -1 : 1;
+          ~~~^~~~~~~~~~~~
+../sysdeps/ieee754/flt-32/e_log10f.c:25:20: warning: ‘zero’ defined but not used [-Wunused-const-variable=]
+ static const float zero   =  0.0;
+                    ^~~~
+../sysdeps/ieee754/flt-32/k_rem_pio2f.c: In function ‘__kernel_rem_pio2f’:
+../sysdeps/ieee754/flt-32/k_rem_pio2f.c:68:6: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+      for(j=0,fw=0.0;j<=jx;j++) fw += x[j]*f[jx+i-j]; q[i] = fw;
+      ^~~
+../sysdeps/ieee754/flt-32/k_rem_pio2f.c:68:54: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+      for(j=0,fw=0.0;j<=jx;j++) fw += x[j]*f[jx+i-j]; q[i] = fw;
+                                                      ^
+In file included from ../sysdeps/x86_64/fpu/multiarch/e_pow-fma4.c:6:0:
+../sysdeps/ieee754/dbl-64/e_pow.c: In function ‘checkint’:
+../sysdeps/ieee754/dbl-64/e_pow.c:444:13: warning: ‘<<’ in boolean context, did you mean ‘<’ ? [-Wint-in-bool-context]
+       if (n << (k - 20))
+           ~~^~~~~~~~~~~
+../sysdeps/ieee754/dbl-64/e_pow.c:446:17: warning: ‘<<’ in boolean context, did you mean ‘<’ ? [-Wint-in-bool-context]
+       return (n << (k - 21)) ? -1 : 1;
+              ~~~^~~~~~~~~~~~
+../sysdeps/ieee754/dbl-64/e_pow.c:452:9: warning: ‘<<’ in boolean context, did you mean ‘<’ ? [-Wint-in-bool-context]
+   if (m << (k + 12))
+       ~~^~~~~~~~~~~
+../sysdeps/ieee754/dbl-64/e_pow.c:454:13: warning: ‘<<’ in boolean context, did you mean ‘<’ ? [-Wint-in-bool-context]
+   return (m << (k + 11)) ? -1 : 1;
+          ~~~^~~~~~~~~~~~
+../sysdeps/unix/sysv/linux/shm_open.c: In function ‘shm_open’:
+../sysdeps/unix/sysv/linux/shm_open.c:188:51: warning: ?: using integer constants in boolean context, the expression will always evaluate to ‘true’ [-Wint-in-bool-context]
+   have_o_cloexec = (flags & FD_CLOEXEC) == 0 ? -1 : 1;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+../sysdeps/unix/sysv/linux/shm_open.c:189:27: warning: comparison of constant ‘0’ with boolean expression is always false [-Wbool-compare]
+        if (have_o_cloexec < 0)
+                           ^
+../sysdeps/unix/sysv/linux/shm_open.c: In function ‘shm_open’:
+../sysdeps/unix/sysv/linux/shm_open.c:188:51: warning: ?: using integer constants in boolean context, the expression will always evaluate to ‘true’ [-Wint-in-bool-context]
+   have_o_cloexec = (flags & FD_CLOEXEC) == 0 ? -1 : 1;
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+../sysdeps/unix/sysv/linux/shm_open.c:189:27: warning: comparison of constant ‘0’ with boolean expression is always false [-Wbool-compare]
+        if (have_o_cloexec < 0)
+                           ^
+res_send.c: In function ‘send_vc’:
+res_send.c:791:19: warning: ‘resplen’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    *ansp2 = *ansp + resplen;
+             ~~~~~~^~~~~~~~~
+base64.c:44:19: warning: ‘rcsid’ defined but not used [-Wunused-const-variable=]
+ static const char rcsid[] = "$BINDId: base64.c,v 8.7 1999/10/13 16:39:33 vixie Exp $";
+                   ^~~~~
+res_send.c: In function ‘send_vc’:
+res_send.c:791:19: warning: ‘resplen’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    *ansp2 = *ansp + resplen;
+             ~~~~~~^~~~~~~~~
+base64.c:44:19: warning: ‘rcsid’ defined but not used [-Wunused-const-variable=]
+ static const char rcsid[] = "$BINDId: base64.c,v 8.7 1999/10/13 16:39:33 vixie Exp $";
+                   ^~~~~
+rpc_parse.c: In function ‘get_prog_declaration’:
+rpc_parse.c:543:23: warning: ‘%d’ directive writing between 1 and 10 bytes into a region of size 7 [-Wformat-overflow=]
+     sprintf (name, "%s%d", ARGNAME, num); /* default name of argument */
+                       ^~
+rpc_parse.c:543:20: note: directive argument in the range [1, 2147483647]
+     sprintf (name, "%s%d", ARGNAME, num); /* default name of argument */
+                    ^~~~~~
+rpc_parse.c:543:5: note: ‘sprintf’ output between 5 and 14 bytes into a destination of size 10
+     sprintf (name, "%s%d", ARGNAME, num); /* default name of argument */
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+nis_call.c: In function ‘nis_server_cache_add’:
+nis_call.c:682:6: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+   if (*loc != NULL)
+      ^
+nis_call.c: In function ‘nis_server_cache_add’:
+nis_call.c:682:6: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+   if (*loc != NULL)
+      ^
+nss_nisplus/nisplus-alias.c: In function ‘_nss_nisplus_getaliasbyname_r’:
+nss_nisplus/nisplus-alias.c:300:12: warning: argument 1 null where non-null expected [-Wnonnull]
+   char buf[strlen (name) + 9 + tablename_len];
+            ^~~~~~~~~~~~~
+In file included from ../include/string.h:51:0,
+                 from nss_nisplus/nisplus-alias.c:23:
+../string/string.h:399:15: note: in a call to function ‘strlen’ declared here
+ extern size_t strlen (const char *__s)
+               ^~~~~~
+nss_nisplus/nisplus-alias.c:303:39: warning: ‘%s’ directive argument is null [-Wformat-truncation=]
+   snprintf (buf, sizeof (buf), "[name=%s],%s", name, tablename_val);
+                                       ^~
+make -C shim all
+make[2]: Entering directory '/home/nicholas/graphene/LibOS/shim'
+make all -C src
+make[3]: Entering directory '/home/nicholas/graphene/LibOS/shim/src'
+[ bookkeep/shim_handle.o ]
+[ bookkeep/shim_vma.o ]
+[ bookkeep/shim_thread.o ]
+[ bookkeep/shim_signal.o ]
+[ utils/printf.o ]
+[ utils/strobjs.o ]
+[ utils/md5.o ]
+[ fs/shim_dcache.o ]
+[ fs/shim_namei.o ]
+[ fs/shim_fs_hash.o ]
+[ fs/shim_fs.o ]
+[ fs/chroot/fs.o ]
+[ fs/str/fs.o ]
+[ fs/pipe/fs.o ]
+[ fs/socket/fs.o ]
+[ fs/proc/info.o ]
+[ fs/proc/ipc-thread.o ]
+[ fs/proc/thread.o ]
+[ fs/proc/fs.o ]
+[ fs/dev/fs.o ]
+[ ipc/shim_ipc.o ]
+[ ipc/shim_ipc_helper.o ]
+[ ipc/shim_ipc_child.o ]
+[ ipc/shim_ipc_pid.o ]
+[ ipc/shim_ipc_sysv.o ]
+[ elf/shim_rtld.o ]
+[ shim_init.o ]
+[ shim_table.o ]
+[ shim_syscalls.o ]
+[ shim_checkpoint.o ]
+[ shim_random.o ]
+[ shim_malloc.o ]
+[ shim_async.o ]
+[ shim_parser.o ]
+[ shim_debug.o ]
+[ syscallas.o ]
+[ start.o ]
+[ sys/shim_ioctl.o ]
+[ sys/shim_futex.o ]
+[ sys/shim_socket.o ]
+[ sys/shim_alarm.o ]
+[ sys/shim_msgget.o ]
+[ sys/shim_time.o ]
+[ sys/shim_benchmark.o ]
+[ sys/shim_semget.o ]
+[ sys/shim_brk.o ]
+[ sys/shim_fork.o ]
+[ sys/shim_sigaction.o ]
+[ sys/shim_sleep.o ]
+[ sys/shim_vfork.o ]
+[ sys/shim_stat.o ]
+[ sys/shim_wait.o ]
+[ sys/shim_access.o ]
+[ sys/shim_fs.o ]
+[ sys/shim_open.o ]
+[ sys/shim_exec.o ]
+[ sys/shim_exit.o ]
+[ sys/shim_dup.o ]
+[ sys/shim_sched.o ]
+[ sys/shim_poll.o ]
+[ sys/shim_uname.o ]
+[ sys/shim_migrate.o ]
+[ sys/shim_fcntl.o ]
+[ sys/shim_sandbox.o ]
+[ sys/shim_getrlimit.o ]
+[ sys/shim_pipe.o ]
+[ sys/shim_epoll.o ]
+[ sys/shim_getcwd.o ]
+[ sys/shim_mmap.o ]
+[ sys/shim_clone.o ]
+[ sys/shim_wrappers.o ]
+[ sys/shim_getpid.o ]
+[ libsysdb.a ]
+ar rcs  libsysdb.a bookkeep/shim_handle.o bookkeep/shim_vma.o bookkeep/shim_thread.o bookkeep/shim_signal.o utils/printf.o utils/strobjs.o utils/md5.o fs/shim_dcache.o fs/shim_namei.o fs/shim_fs_hash.o fs/shim_fs.o fs/chroot/fs.o fs/str/fs.o fs/pipe/fs.o fs/socket/fs.o fs/proc/info.o fs/proc/ipc-thread.o fs/proc/thread.o fs/proc/fs.o fs/dev/fs.o ipc/shim_ipc.o ipc/shim_ipc_helper.o ipc/shim_ipc_child.o ipc/shim_ipc_pid.o ipc/shim_ipc_sysv.o elf/shim_rtld.o shim_init.o shim_table.o shim_syscalls.o shim_checkpoint.o shim_random.o shim_malloc.o shim_async.o shim_parser.o shim_debug.o syscallas.o start.o sys/shim_ioctl.o sys/shim_futex.o sys/shim_socket.o sys/shim_alarm.o sys/shim_msgget.o sys/shim_time.o sys/shim_benchmark.o sys/shim_semget.o sys/shim_brk.o sys/shim_fork.o sys/shim_sigaction.o sys/shim_sleep.o sys/shim_vfork.o sys/shim_stat.o sys/shim_wait.o sys/shim_access.o sys/shim_fs.o sys/shim_open.o sys/shim_exec.o sys/shim_exit.o sys/shim_dup.o sys/shim_sched.o sys/shim_poll.o sys/shim_uname.o sys/shim_migrate.o sys/shim_fcntl.o sys/shim_sandbox.o sys/shim_getrlimit.o sys/shim_pipe.o sys/shim_epoll.o sys/shim_getcwd.o sys/shim_mmap.o sys/shim_clone.o sys/shim_wrappers.o sys/shim_getpid.o
+cp -f ../../../Pal/src/host/Linux-SGX/host_endian.h .lib/host_endian.h
+make -C ../../../Pal/lib target=/home/nicholas/graphene/LibOS/shim/src/.lib/
+make[4]: Entering directory '/home/nicholas/graphene/Pal/lib'
+[ atoi.o ]
+[ strlen.o ]
+[ memcmp.o ]
+[ wordcopy.o ]
+[ memcpy.o ]
+[ memset.o ]
+[ strchr.o ]
+[ printfmt.o ]
+[ hton.o ]
+[ inet_pton.o ]
+[ config.o ]
+[ path.o ]
+[ udivmodti4.o ]
+[ cipher_wrap.o ]
+[ dhm.o ]
+[ cipher.o ]
+[ rsa.o ]
+[ cmac.o ]
+[ sha256.o ]
+[ md.o ]
+[ aes.o ]
+[ bignum.o ]
+[ aesni.o ]
+[ mbedtls_adapter.o ]
+[ mbedtls_dh.o ]
+[ graphene-lib.a ]
+make[4]: Leaving directory '/home/nicholas/graphene/Pal/lib'
+[ libsysdb.so ]
+ld -shared -nostdlib --version-script shim.map -T shim.lds -z combreloc -z relro -z defs -dynamic-link=libpal.so -rpath-link=/home/nicholas/graphene/Runtime -o libsysdb.so bookkeep/shim_handle.o bookkeep/shim_vma.o bookkeep/shim_thread.o bookkeep/shim_signal.o utils/printf.o utils/strobjs.o utils/md5.o fs/shim_dcache.o fs/shim_namei.o fs/shim_fs_hash.o fs/shim_fs.o fs/chroot/fs.o fs/str/fs.o fs/pipe/fs.o fs/socket/fs.o fs/proc/info.o fs/proc/ipc-thread.o fs/proc/thread.o fs/proc/fs.o fs/dev/fs.o ipc/shim_ipc.o ipc/shim_ipc_helper.o ipc/shim_ipc_child.o ipc/shim_ipc_pid.o ipc/shim_ipc_sysv.o elf/shim_rtld.o shim_init.o shim_table.o shim_syscalls.o shim_checkpoint.o shim_random.o shim_malloc.o shim_async.o shim_parser.o shim_debug.o syscallas.o start.o sys/shim_ioctl.o sys/shim_futex.o sys/shim_socket.o sys/shim_alarm.o sys/shim_msgget.o sys/shim_time.o sys/shim_benchmark.o sys/shim_semget.o sys/shim_brk.o sys/shim_fork.o sys/shim_sigaction.o sys/shim_sleep.o sys/shim_vfork.o sys/shim_stat.o sys/shim_wait.o sys/shim_access.o sys/shim_fs.o sys/shim_open.o sys/shim_exec.o sys/shim_exit.o sys/shim_dup.o sys/shim_sched.o sys/shim_poll.o sys/shim_uname.o sys/shim_migrate.o sys/shim_fcntl.o sys/shim_sandbox.o sys/shim_getrlimit.o sys/shim_pipe.o sys/shim_epoll.o sys/shim_getcwd.o sys/shim_mmap.o sys/shim_clone.o sys/shim_wrappers.o sys/shim_getpid.o .lib/graphene-lib.a /home/nicholas/graphene/LibOS/shim/src/../../../Runtime/libpal-Linux-SGX.so -soname libsysdb.so \
+	-e shim_start
+[ libsysdb_debug.so ]
+ld -shared -nostdlib --version-script shim-debug.map -T shim.lds -z combreloc -z relro -z defs -dynamic-link=libpal.so -rpath-link=/home/nicholas/graphene/Runtime -o libsysdb_debug.so bookkeep/shim_handle.o bookkeep/shim_vma.o bookkeep/shim_thread.o bookkeep/shim_signal.o utils/printf.o utils/strobjs.o utils/md5.o fs/shim_dcache.o fs/shim_namei.o fs/shim_fs_hash.o fs/shim_fs.o fs/chroot/fs.o fs/str/fs.o fs/pipe/fs.o fs/socket/fs.o fs/proc/info.o fs/proc/ipc-thread.o fs/proc/thread.o fs/proc/fs.o fs/dev/fs.o ipc/shim_ipc.o ipc/shim_ipc_helper.o ipc/shim_ipc_child.o ipc/shim_ipc_pid.o ipc/shim_ipc_sysv.o elf/shim_rtld.o shim_init.o shim_table.o shim_syscalls.o shim_checkpoint.o shim_random.o shim_malloc.o shim_async.o shim_parser.o shim_debug.o start.o sys/shim_ioctl.o sys/shim_futex.o sys/shim_socket.o sys/shim_alarm.o sys/shim_msgget.o sys/shim_time.o sys/shim_benchmark.o sys/shim_semget.o sys/shim_brk.o sys/shim_fork.o sys/shim_sigaction.o sys/shim_sleep.o sys/shim_vfork.o sys/shim_stat.o sys/shim_wait.o sys/shim_access.o sys/shim_fs.o sys/shim_open.o sys/shim_exec.o sys/shim_exit.o sys/shim_dup.o sys/shim_sched.o sys/shim_poll.o sys/shim_uname.o sys/shim_migrate.o sys/shim_fcntl.o sys/shim_sandbox.o sys/shim_getrlimit.o sys/shim_pipe.o sys/shim_epoll.o sys/shim_getcwd.o sys/shim_mmap.o sys/shim_clone.o sys/shim_wrappers.o sys/shim_getpid.o .lib/graphene-lib.a /home/nicholas/graphene/LibOS/shim/src/../../../Runtime/libpal-Linux-SGX.so -soname libsysdb_debug.so \
+	-e shim_start
+cp -f libsysdb.a /home/nicholas/graphene/LibOS/shim/src/../../../Runtime/libsysdb.a
+cp -f libsysdb.so /home/nicholas/graphene/LibOS/shim/src/../../../Runtime/libsysdb.so
+cp -f libsysdb_debug.so /home/nicholas/graphene/LibOS/shim/src/../../../Runtime/libsysdb_debug.so
+make[3]: Leaving directory '/home/nicholas/graphene/LibOS/shim/src'
+make all -C test
+make[3]: Entering directory '/home/nicholas/graphene/LibOS/shim/test'
+ln -sf ../../../Runtime/pal_loader
+for f in native; do (cd $f; make; cd ..); done
+make[4]: Entering directory '/home/nicholas/graphene/LibOS/shim/test/native'
+ln -sf ../../../../Runtime/pal_loader
+[ static ]
+[ pie ]
+[ sandbox_create.libos ]
+[ test_start_pthread_m.m ]
+[ start.pthread.m ]
+[ pipe ]
+[ msg_create.libos ]
+[ msg_send ]
+[ vfork ]
+[ time ]
+[ divzero ]
+[ fork_exec ]
+[ pid_kill ]
+[ sleep ]
+[ meminfo ]
+[ unix ]
+[ brk ]
+[ malloc ]
+[ msg_create ]
+[ epoll_socket ]
+[ cpuinfo ]
+[ tcp ]
+[ multiproc ]
+[ kill ]
+[ readdir ]
+[ helloworld ]
+[ fork ]
+[ system ]
+[ get_time.m ]
+[ dup ]
+[ file ]
+[ socketpair ]
+[ fork_bomb ]
+[ sqrt.m ]
+[ epoll ]
+[ helloworld.pthread ]
+[ dir ]
+[ sem ]
+[ alarm ]
+[ sync.pthread ]
+[ script ]
+[ exec_fork ]
+[ futextest.pthread ]
+[ proc ]
+[ errno ]
+[ msg_send.libos ]
+[ pid_alloc ]
+[ vfork_exec ]
+[ pipe_latency ]
+[ clone ]
+[ rename ]
+[ condvar.pthread ]
+[ udp ]
+[ fs ]
+[ multisleep ]
+[ ls.manifest ]
+RELDIR= && \
+sed -e 's:\$(PAL):/home/nicholas/graphene/Runtime/pal_loader SGX:g' -e 's:\$(PWD):/home/nicholas/graphene/LibOS/shim/test/native:g' -e 's:\$(BIN):ls:g' -e 's:\$(SHIMPATH):'$RELDIR'../../../../Runtime/libsysdb.so:g' -e 's:\$(LIBCDIR):'$RELDIR'../../../../Runtime:g'  ls.manifest.template > ls.manifest
+(grep -q '^#!' ls.manifest && chmod +x ls.manifest) || true
+[ static.manifest ]
+RELDIR= && \
+sed -e 's:\$(PAL):/home/nicholas/graphene/Runtime/pal_loader SGX:g' -e 's:\$(PWD):/home/nicholas/graphene/LibOS/shim/test/native:g' -e 's:\$(BIN):static:g' -e 's:\$(SHIMPATH):'$RELDIR'../../../../Runtime/libsysdb.so:g' -e 's:\$(LIBCDIR):'$RELDIR'../../../../Runtime:g'  static.manifest.template > static.manifest
+(grep -q '^#!' static.manifest && chmod +x static.manifest) || true
+[ manifest ]
+sed -e 's:\$(PAL):/home/nicholas/graphene/Runtime/pal_loader SGX:g' -e 's:\$(PWD):/home/nicholas/graphene/LibOS/shim/test/native:g' -e 's:\$(BIN):manifest:g' -e 's:\$(SHIMPATH):'$RELDIR'../../../../Runtime/libsysdb.so:g' -e 's:\$(LIBCDIR):'$RELDIR'../../../../Runtime:g'  manifest.template > manifest
+make[5]: Entering directory '/home/nicholas/graphene/LibOS/shim/test/native'
+make[5]: 'static.manifest' is up to date.
+make[5]: Leaving directory '/home/nicholas/graphene/LibOS/shim/test/native'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' static.manifest`; do make ${f%.sig}.manifest.sgx; done
+[ static.manifest.sgx ]
+/home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/pal-sgx-sign -libpal /home/nicholas/graphene/Pal/src/host/Linux-SGX/../../../../Runtime/libpal-Linux-SGX.so -key /home/nicholas/graphene/Pal/src/host/Linux-SGX/signer/enclave-key.pem -output static.manifest.sgx -exec static -manifest static.manifest
+make[5]: Entering directory '/home/nicholas/graphene/LibOS/shim/test/native'
+make[5]: 'manifest' is up to date.
+make[5]: Leaving directory '/home/nicholas/graphene/LibOS/shim/test/native'
+for f in `grep -Po 'sgx.trusted_children.[^\\s=]+\\s*=\\s*file:\\K\\S+' manifest`; do make ${f%.sig}.manifest.sgx; done
+make[5]: Entering directory '/home/nicholas/graphene/LibOS/shim/test/native'
+make[5]: Leaving directory '/home/nicholas/graphene/LibOS/shim/test/native'
+../../../../Pal/src///host/Linux-SGX/Makefile.Test:33: recipe for target 'pie.manifest.sgx' failed
+make[4]: Leaving directory '/home/nicholas/graphene/LibOS/shim/test/native'
+make[3]: Leaving directory '/home/nicholas/graphene/LibOS/shim/test'
+make[2]: Leaving directory '/home/nicholas/graphene/LibOS/shim'
+make[1]: Leaving directory '/home/nicholas/graphene/LibOS'
+make -C Runtime all
+make[1]: Entering directory '/home/nicholas/graphene/Runtime'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/nicholas/graphene/Runtime'

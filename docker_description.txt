@@ -1,0 +1,98 @@
+#Summary
+
+This is a dockerfile used to port the Graphene project (found here: https://github.com/oscarlab/graphene) to run in a docker container. We are primarily concerned with running the docker instance
+using Graphene-SGX. As a result this build only details how to configure Graphene-SGX.
+
+Important Notes:
+	- This build only runs through creating the tutorial. Actual usage should refer to the official documentation.
+	- The key being used is some private key generated and shared publicly on github. It is not private
+	- Graphene requires access to the source code for the driver so it is include. I do not update the actual driver. You may wish to change your driver to 1.8 (included) if you have problems.
+	- Graphene and the driver are not included as submodules due to modifications that needed to be made.
+
+#Setup
+
+(Note all docker commands on the server require prepending sudo. For best practice we should change this.)
+
+This should already have been done in njriasan on the server. If you reach problems in running a later step try redoing this.
+
+git clone https://github.com/njriasan/graphene-docker.git
+
+cd graphene-docker
+
+## build the docker instance (must be inside graphene-docker)
+
+docker build . (take the final hash produced END_HASH)
+
+## Install the gsgx driver (this should already be done. Even if rebuild please skip this unless you encounter an issue)
+
+cd graphene/Pal/src/host/Linux-SGX/sgx-driver
+
+make
+
+	# This will prompt you asking where the driver code is and what version. The answers are:
+        >>> (PATH TO GRAPHENE DOCKER)/graphene-docker/linux-sgx-driver
+        >>> 1.8
+
+
+sudo ./load.sh
+
+cd ../../../../../../
+
+## Run the docker container
+
+docker run -d --device /dev/isgx --device /dev/gsgx --device /dev/mei0 --name graphene END_HASH
+
+#Launching Docker
+
+docker exec -t -i graphene bash
+
+
+#Running the Sample Demo from Inside the Container
+
+
+
+## Initial Build
+
+cd graphene
+
+make clean
+
+make SGX=1
+
+	# This will prompt you asking where the driver code is and what version. The answers are:
+	>>> /linux-sgx-driver
+	>>> 1.8
+
+
+
+### Testing the Native Code
+
+cd /graphene/LibOS/shim/test/native
+
+make clean
+
+make SGX=1
+
+make SGX_RUN=1
+
+SGX=1 ./pal_loader helloworld 
+
+
+### Testing the Python Script
+
+cd /graphene/LibOS/shim/test/apps/python
+
+make clean
+
+make SGX=1
+
+make SGX_RUN=1
+
+SGX=1 ./python.manifest.sgx scripts/helloworld.py
+
+
+#Possible Problems
+
+- The source code for the driver may not match the installed driver.
+
+- make clean is not recursive throughout graphene and may require another attempt
