@@ -31,4 +31,8 @@ add linux-sgx-driver /linux-sgx-driver
 
 #Build the driver
 
+RUN wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.13.6/linux-headers-4.13.6-041306_4.13.6-041306.201711060046_all.deb
+
+RUN dpkg -i linux-headers-4.13.6-041306_4.13.6-041306.201711060046_all.deb
+
 RUN cd /linux-sgx-driver && make clean && apt-get install -y linux-headers-$(uname -r) && make
