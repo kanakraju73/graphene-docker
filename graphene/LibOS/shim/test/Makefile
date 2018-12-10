@@ -55,7 +55,7 @@ endif
 pal_loader:
 	ln -sf $(RUNTIME)/pal_loader
 
-relative-to = $(shell python2 -c "import os.path; print os.path.relpath(\"$(abspath $2)\",\"$(abspath $1)\")")
+relative-to = $(shell python -c "import os.path; print os.path.relpath(\"$(abspath $2)\",\"$(abspath $1)\")")
 
 %manifest: %manifest.template
 	@echo [ $@ ]
